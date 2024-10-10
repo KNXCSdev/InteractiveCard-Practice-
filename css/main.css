@@ -1,0 +1,31 @@
+:root {
+  --lineargradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+  --red: hsl(0, 100%, 66%);
+  --white: hsl(0, 0%, 100%);
+  --lightgrayishviolet: hsl(270, 3%, 87%);
+  --darkgrayishviolet: hsl(279, 6%, 55%);
+  --verydarkviolet: hsl(278, 68%, 11%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1;
+  font-size: 1.8rem;
+  height: 100vh;
+  background-image: url("/images/bg-main-desktop.png");
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
