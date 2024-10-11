@@ -179,6 +179,44 @@ label {
   cursor: pointer;
 }
 
+.primary-heading {
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--verydarkviolet);
+}
+
+.form-completed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.form-completed img {
+  margin-bottom: 1rem;
+}
+.form-completed-message {
+  font-size: 2rem;
+  color: var(--darkgrayishviolet);
+  margin-bottom: 2rem;
+}
+.form-completed-btn {
+  width: 125%;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--verydarkviolet);
+  color: var(--white);
+  letter-spacing: 2px;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
 .hidden {
   opacity: 0;
+}
+
+.none {
+  display: none;
 }
