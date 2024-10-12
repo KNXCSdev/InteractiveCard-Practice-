@@ -12,8 +12,6 @@ const cardFrontMonth = document.querySelector(".card-month");
 const cardFrontYear = document.querySelector(".card-year");
 const cardBackCvc = document.querySelector(".card-back-cvc");
 
-let lettersOnly = /^[A-Za-z\s]+$/; // Allow letters and spaces for names
-let numbersOnly = /^[0-9]+$/; // Only numbers
 let invalid = false;
 
 // Function to format the card number with spaces every 4 digits
@@ -38,7 +36,7 @@ btn.addEventListener("click", function (e) {
   invalid = false;
 
   // Check if the name contains only letters and spaces
-  if (lettersOnly.test(cardName.value)) {
+  if (isNaN(cardName.value)) {
     cardFrontName.textContent = cardName.value; // Update front card name
   } else {
     invalid = true;
@@ -46,7 +44,7 @@ btn.addEventListener("click", function (e) {
   }
 
   // Check if the card number contains only numbers
-  if (numbersOnly.test(cardNumber.value.replace(/\s+/g, ""))) {
+  if (cardNumber.value.length === 19) {
     cardFrontNumber.textContent = cardNumber.value
       .replace(/\s+/g, "")
       .replace(/(\d{4})(?=\d)/g, "$1 "); // Format with spaces
@@ -56,7 +54,7 @@ btn.addEventListener("click", function (e) {
   }
 
   if (
-    numbersOnly.test(cardMonth.value) &&
+    !isNaN(cardMonth.value) &&
     parseInt(cardMonth.value) >= 1 &&
     parseInt(cardMonth.value) <= 12
   ) {
@@ -67,7 +65,7 @@ btn.addEventListener("click", function (e) {
   }
 
   const currentYear = new Date().getFullYear() % 100;
-  if (numbersOnly.test(cardYear.value) && parseInt(cardYear.value) >= currentYear) {
+  if (!isNaN(cardYear.value) && parseInt(cardYear.value) >= currentYear) {
     cardFrontYear.textContent = cardYear.value;
   } else {
     invalid = true;
@@ -75,7 +73,7 @@ btn.addEventListener("click", function (e) {
   }
 
   // Check if the CVC contains only numbers
-  if (numbersOnly.test(cardCvc.value)) {
+  if (!isNaN(cardCvc.value)) {
     cardBackCvc.textContent = cardCvc.value;
   } else {
     invalid = true;
