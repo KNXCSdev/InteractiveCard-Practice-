@@ -36,7 +36,7 @@ btn.addEventListener("click", function (e) {
   invalid = false;
 
   // Check if the name contains only letters and spaces
-  if (isNaN(cardName.value)) {
+  if (!/\d/.test(cardName.value)) {
     cardFrontName.textContent = cardName.value; // Update front card name
   } else {
     invalid = true;
@@ -54,7 +54,7 @@ btn.addEventListener("click", function (e) {
   }
 
   if (
-    !isNaN(cardMonth.value) &&
+    Number.isFinite(+cardMonth.value) &&
     parseInt(cardMonth.value) >= 1 &&
     parseInt(cardMonth.value) <= 12
   ) {
@@ -65,7 +65,7 @@ btn.addEventListener("click", function (e) {
   }
 
   const currentYear = new Date().getFullYear() % 100;
-  if (!isNaN(cardYear.value) && parseInt(cardYear.value) >= currentYear) {
+  if (Number.isFinite(+cardYear.value) && parseInt(cardYear.value) >= currentYear) {
     cardFrontYear.textContent = cardYear.value;
   } else {
     invalid = true;
@@ -73,7 +73,7 @@ btn.addEventListener("click", function (e) {
   }
 
   // Check if the CVC contains only numbers
-  if (!isNaN(cardCvc.value)) {
+  if (Number.isFinite(+cardCvc.value)) {
     cardBackCvc.textContent = cardCvc.value;
   } else {
     invalid = true;
